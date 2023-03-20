@@ -41,7 +41,7 @@ namespace Wintellect.PowerCollections
 
         public T Top()
         {
-            if (Count <= 0
+            if (Count <= 0)
             {
                 throw new InvalidOperationException("Стэк пустой");
             }
