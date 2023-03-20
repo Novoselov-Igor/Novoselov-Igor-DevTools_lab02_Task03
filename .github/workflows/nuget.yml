@@ -6,7 +6,11 @@ jobs:
   build_nuget:
 
     runs-on: windows-latest 
-
+    
+    permissions:
+      packages: write
+      contents: read
+      
     steps:
 
     - name: Checkout
@@ -21,6 +25,9 @@ jobs:
     - name: create package
       run: dotnet pack
       working-directory: PowerCollections
+      
+    - name: Login
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
     - name: publish package
       run: dotnet nuget push "*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/Novoselov-Igor/index.json --skip-duplicate
       working-directory: PowerCollections\PowerCollections\bin\Debug\
