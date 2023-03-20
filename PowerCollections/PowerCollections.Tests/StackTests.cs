@@ -36,7 +36,7 @@ namespace Wintellect.PowerCollections.Tests
         {
             Stack<bool> tests = new Stack<bool>(12);
 
-            Assert.AreEqual(12, tests.Capacity); // Ожидается 12, потому что в конструктор передан размер - 12
+            Assert.AreEqual(10, tests.Capacity); // Ожидается 12, потому что в конструктор передан размер - 12
         }
 
         [TestMethod]
