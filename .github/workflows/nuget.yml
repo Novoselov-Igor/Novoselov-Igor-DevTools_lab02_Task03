@@ -20,7 +20,7 @@ jobs:
         dotnet-version: 6.0.x
     - name: create package
       run: dotnet pack
-      working-directory: PowerCollections
+      working-directory: PowerCollections\PowerCollections\PowerCollections.csproj
     - name: publish package
       run: dotnet nuget push "\PowerCollections\bin\Debug\*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/Novoselov-Igor/index.json --skip-duplicate
       working-directory: PowerCollections
