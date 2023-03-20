@@ -22,12 +22,23 @@ jobs:
       uses: actions/setup-dotnet@v3.0.3
       with:
         dotnet-version: 6.0.x
-    - name: create package
+        
+    - name: Create Package
       run: dotnet pack
       working-directory: PowerCollections
       
-    - name: Login
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-    - name: publish package
+    - name: Publish Package
       run: dotnet nuget push "*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/Novoselov-Igor/index.json --skip-duplicate
       working-directory: PowerCollections\PowerCollections\bin\Debug\
+      
+    - name: Get XML
+      id: getxml
+      uses: mavrosxristoforos/get-xml-info@1.1.1
+      with: 
+        xml-file: "PowerCollections\PowerCollections\PowerCollections.csproj"
+        xpath: '//version'
+    - name: Create Release 
+      uses: ncipollo/release-action@v1.12.0
+      with: 
+        artifacts: 'PowerCollections\PowerCollections\bin\Debug\*${{ steps.getxml.outputs.info }}.nupkg'
+        tag: ${{ steps.getxml.outputs.info }}
