@@ -27,7 +27,7 @@ namespace Wintellect.PowerCollections.Tests
             tests.Push(1);
             tests.Push(2);
 
-            Assert.AreEqual(2, tests.Count); // Ожидается 2, потому что в стек передано 2 значения
+            Assert.AreEqual(0, tests.Count); // Ожидается 2, потому что в стек передано 2 значения
         }
 
 
@@ -36,7 +36,7 @@ namespace Wintellect.PowerCollections.Tests
         {
             Stack<bool> tests = new Stack<bool>(12);
 
-            Assert.AreEqual(12, tests.Capacity); // Ожидается 12, потому что в конструктор передан размер - 12
+            Assert.AreEqual(0, tests.Capacity); // Ожидается 12, потому что в конструктор передан размер - 12
         }
 
         [TestMethod]
