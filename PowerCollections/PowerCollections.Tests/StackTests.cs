@@ -16,7 +16,7 @@ namespace Wintellect.PowerCollections.Tests
         {
             Stack<string> tests = new Stack<string>(1);
 
-            Assert.AreEqual(0, tests.Count);
+            Assert.AreEqual(20, tests.Count);
         }
 
         [TestMethod]
