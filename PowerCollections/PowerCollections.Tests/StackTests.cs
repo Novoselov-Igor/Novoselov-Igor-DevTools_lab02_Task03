@@ -99,7 +99,7 @@ namespace Wintellect.PowerCollections.Tests
         {
             Stack<int> tests = new Stack<int>(5);
 
-            tests.Top();
+            tests.Pop();
         }
 
         [TestMethod]
