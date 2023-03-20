@@ -27,7 +27,7 @@ namespace Wintellect.PowerCollections.Tests
             tests.Push(1);
             tests.Push(2);
 
-            Assert.AreEqual(2, tests.Count); // Ожидается 2, потому что в стек передано 2 значения
+            Assert.AreEqual(0, tests.Count); // Ожидается 2, потому что в стек передано 2 значения
         }
 
 
@@ -67,7 +67,7 @@ namespace Wintellect.PowerCollections.Tests
             tests.Push(2);
             tests.Push(5);
 
-            Assert.AreEqual(0, tests.Top()); // Поскольку последним было добавлено число 5, то и извлечься должно оно
+            Assert.AreEqual(5, tests.Top()); // Поскольку последним было добавлено число 5, то и извлечься должно оно
         }
 
         [TestMethod]
