@@ -16,8 +16,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: PowerCollections.sln
-      Test_Project_Path: PowerCollections.Tests\PowerCollections.Tests.csproj
+      Solution_Name: PowerCollections\PowerCollections.sln
+      Test_Project_Path: PowerCollections\PowerCollections.Tests\PowerCollections.Tests.csproj
 
     steps:
     - name: Checkout
