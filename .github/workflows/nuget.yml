@@ -1,0 +1,26 @@
+name: Task03
+on: workflow_dispatch
+  
+jobs:
+
+  build_nuget:
+
+    runs-on: windows-latest 
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3.0.3
+      with:
+        dotnet-version: 6.0.x
+    - name: create package
+      run: dotnet pack
+      working-directory: PowerCollections
+    - name: publish package
+      run: dotnet nuget push "\PowerCollections\bin\Debug\*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/Novoselov-Igor/index.json --skip-duplicate
+      working-directory: PowerCollections
