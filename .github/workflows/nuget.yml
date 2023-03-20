@@ -22,5 +22,5 @@ jobs:
       run: dotnet pack
       working-directory: PowerCollections
     - name: publish package
-      run: dotnet nuget push "*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/Novoselov-Igor/index.json --skip-duplicate
+      run: dotnet nuget push "*.nupkg" -k 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 -s https://nuget.pkg.github.com/Novoselov-Igor/index.json --skip-duplicate
       working-directory: PowerCollections\PowerCollections\bin\Debug\
